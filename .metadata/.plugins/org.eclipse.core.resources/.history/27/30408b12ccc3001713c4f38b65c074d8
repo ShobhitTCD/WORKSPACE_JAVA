@@ -1,0 +1,10 @@
+
+public class NewConnectionThread extends Thread{
+	
+	private Socket socket;
+	
+	private NewConnectionThread(Socket socket) {
+		this
+	}
+
+}

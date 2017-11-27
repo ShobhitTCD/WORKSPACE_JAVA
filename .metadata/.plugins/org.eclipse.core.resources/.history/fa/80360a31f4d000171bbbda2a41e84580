@@ -1,0 +1,27 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.Date;
+
+public class NewConnectionThread extends Thread{
+	
+	private Socket socket;
+	
+	private NewConnectionThread(Socket socket) {
+		this.socket = socket;
+	}
+
+	public void run() {
+		handleClientSocket();
+	}
+	
+	private  void handleClientSocket() throws IOException, InterruptedException {
+		OutputStream outputstream = clientSocket.getOutputStream();
+		for(int i =0;i<=10;i++) {
+			outputstream.write(("Time now is" + new Date() +"\n") .getBytes());
+			Thread.sleep(1000);
+		}
+		
+		clientSocket.close();
+	}
+}
